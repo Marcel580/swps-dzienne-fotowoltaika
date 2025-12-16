@@ -34,6 +34,12 @@ const StringComparison stringComparison = StringComparison.OrdinalIgnoreCase;
 
 int firstplayerpoints = 0;
 int secondplayerpoints = 0;
+Console.WriteLine("Player 1,what's your name ?");
+string firstPLayername =Console.ReadLine()!;
+
+Console.WriteLine("Player 2,what's your name ?");
+string secondPLayername = Console.ReadLine()!;
+
 
 Console.WriteLine("How many wins ?");
 string maxWinsText= Console.ReadLine()!;
@@ -52,8 +58,8 @@ while(firstplayerpoints < 3 && secondplayerpoints < 3)
 {
     Console.WriteLine("Let's play Rock-Paper-Scissors!");
 
-    string firstSign = GetCorrectSign("Player 1");//p1
-    string secondSign = GetCorrectSign("Player 2");//p2
+    string firstSign = GetCorrectSign(firstPLayername);//p1
+    string secondSign = GetCorrectSign(secondPLayername);//p2
 
     List<string> SignsLosingWithFirstSign = winningMap[firstSign];
 
@@ -63,16 +69,16 @@ while(firstplayerpoints < 3 && secondplayerpoints < 3)
     }
     else if (SignsLosingWithFirstSign.Contains(secondSign,StringComparer.OrdinalIgnoreCase))
     {
-        Console.WriteLine("First player won!");
+        Console.WriteLine(firstPLayername);
         firstplayerpoints ++ ;
     }
     else
     {
-        Console.WriteLine("Second player won!");
+        Console.WriteLine(secondPLayername);
         secondplayerpoints ++;
     }
-    Console.WriteLine($"First player:{firstplayerpoints}");
-    Console.WriteLine($"Second Player:{secondplayerpoints}");
+    Console.WriteLine($"{firstPLayername}:{firstplayerpoints}");
+    Console.WriteLine($"{secondPLayername}:{secondplayerpoints}");
 
    // if(firstplayerpoints >= 3 || secondplayerpoints >= 3)
 //{
